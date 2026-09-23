@@ -1,0 +1,787 @@
+
+/* =========================
+    PURA VIDA
+   ESTILOS GENERALES
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #26332a;
+    line-height: 1.6;
+}
+
+/* =========================
+   COLORES
+========================= */
+
+:root {
+    --verde: #2e7d32;
+    --verde-oscuro: #1b5e20;
+    --verde-claro: #a5d6a7;
+    --verde-suave: #e8f5e9;
+    --amarillo: #ffd54f;
+    --amarillo-suave: #fff8d6;
+    --blanco: #ffffff;
+    --gris: #647067;
+    --oscuro: #203027;
+}
+
+/* =========================
+   NAVEGACIÓN
+========================= */
+
+header {
+    background: rgba(240, 248, 255, 0.493);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow: 0 4px 18px rgba(32, 48, 39, 0.08), inset 0 -1px rgba(255, 255, 255, 0.637);
+    backdrop-filter: blur(10px) saturate(125%);
+    -webkit-backdrop-filter: blur(14px) saturate(125%);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+header.header-scrolled {
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 8px 24px rgba(32, 48, 39, 0.14), inset 0 -1px rgba(255, 255, 255, 0.45);
+}
+
+.navbar {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    min-height: 75px;
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    color: var(--verde-oscuro);
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 25px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: min(280px, calc(100vw - 40px));
+    padding: 12px 20px;
+    list-style: none;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.58);
+    background: rgba(163, 230, 63, 0.966);
+    box-shadow: 0 12px 30px rgba(32, 48, 39, 0.15);
+    backdrop-filter: blur(14px) saturate(125%);
+    -webkit-backdrop-filter: blur(14px) saturate(125%);
+}
+
+.menu.menu-abierto {
+    display: flex;
+}
+
+.menu li {
+    border-bottom: 1px solid var(--verde-suave);
+}
+
+.menu li:last-child {
+    border-bottom: 0;
+}
+
+.menu a {
+    display: block;
+    padding: 11px 0;
+    color: var(--oscuro);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: var(--verde);
+}
+
+.menu-toggle {
+    display: block;
+    width: 44px;
+    height: 44px;
+    padding: 9px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--verde-suave);
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 4px auto;
+    border-radius: 3px;
+    background: var(--verde-oscuro);
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 620px;
+    padding: 80px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+
+    background:
+        linear-gradient(90deg, rgba(232, 245, 233, 0.96) 0%, rgba(250, 255, 234, 0.78) 55%, rgba(250, 255, 234, 0.3) 100%),
+        url("../img/hero-background.webp") center / cover no-repeat,
+        linear-gradient(135deg, #e8f5e9, #faffea);
+}
+
+.hero-text {
+    max-width: 650px;
+}
+
+.etiqueta {
+    color: var(--verde);
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.logo-seccion {
+    display: block;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+.hero h1 {
+    color: var(--verde-oscuro);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+.hero p:not(.etiqueta) {
+    color: var(--gris);
+    font-size: 1.15rem;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 22px;
+
+    background: var(--verde);
+    color: white;
+
+    text-decoration: none;
+    border-radius: 30px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--verde-oscuro);
+    transform: translateY(-2px);
+}
+
+.btn-secundario {
+    background: var(--amarillo);
+    color: var(--oscuro);
+}
+
+.btn-secundario:hover {
+    background: #fbc02d;
+}
+
+.hero-icon {
+    width: 300px;
+    height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--verde-claro);
+    border-radius: 50%;
+
+    font-size: 8rem;
+
+    box-shadow: 0 20px 50px rgba(46, 125, 50, 0.18);
+}
+
+
+.logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.hero-icon {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    padding: 25px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+}
+
+.hero-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.slogan {
+    font-size: 1.35rem !important;
+    font-weight: bold;
+    margin-bottom: 15px !important;
+}
+
+
+/* =========================
+   SECCIONES
+========================= */
+
+.seccion {
+    max-width: 1200px;
+    margin: auto;
+    padding: 90px 25px;
+}
+
+.seccion h2,
+.contacto h2 {
+    color: var(--verde-oscuro);
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 20px;
+}
+
+.intro {
+    max-width: 800px;
+    color: var(--gris);
+    font-size: 1.05rem;
+    margin-bottom: 40px;
+}
+
+/* =========================
+   TARJETAS
+========================= */
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.tarjeta,
+.problema,
+.regla {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+}
+
+.tarjeta:hover,
+.problema:hover,
+.regla:hover {
+    transform: translateY(-5px);
+}
+
+.icono {
+    display: block;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.tarjeta h3,
+.problema h3,
+.regla h3 {
+    color: var(--verde-oscuro);
+    margin-bottom: 10px;
+}
+
+.tarjeta p,
+.problema p,
+.regla p {
+    color: var(--gris);
+}
+
+/* =========================
+   COLORES CORPORATIVOS
+========================= */
+
+.colores {
+    margin-top: 45px;
+}
+
+.colores h3 {
+    margin-bottom: 20px;
+    color: var(--verde-oscuro);
+}
+
+.colores-lista {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.colores-lista div {
+    padding: 15px;
+    background: var(--verde-suave);
+    border-radius: 12px;
+    font-size: 0.9rem;
+}
+
+.color {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+}
+
+.verde {
+    background: #2e7d32;
+}
+
+.verde-claro {
+    background: #a5d6a7;
+}
+
+.amarillo {
+    background: #ffd54f;
+}
+
+.blanco {
+    background: #ffffff;
+}
+
+/* =========================
+   FONDOS
+========================= */
+
+.fondo-verde {
+    max-width: none;
+    padding-left: max(25px, calc((100% - 1150px) / 2));
+    padding-right: max(25px, calc((100% - 1150px) / 2));
+
+    background: var(--verde-suave);
+}
+
+.fondo-amarillo {
+    max-width: none;
+    padding-left: max(25px, calc((100% - 1150px) / 2));
+    padding-right: max(25px, calc((100% - 1150px) / 2));
+
+    background: var(--amarillo-suave);
+}
+
+.fondo-verde .tarjetas,
+.fondo-amarillo .tarjetas {
+    max-width: 1150px;
+}
+
+/* =========================
+   DIRIGIDO
+========================= */
+
+.dirigido {
+    max-width: 800px;
+    margin-top: 45px;
+    padding: 30px;
+
+    background: white;
+    border-left: 6px solid var(--verde);
+
+    border-radius: 15px;
+}
+
+.dirigido h3 {
+    color: var(--verde-oscuro);
+    margin-bottom: 10px;
+}
+
+.dirigido p {
+    color: var(--gris);
+    margin-bottom: 10px;
+}
+
+/* =========================
+   INNOVACIÓN
+========================= */
+
+.innovacion {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+
+    padding: 40px;
+
+    background: var(--verde-suave);
+    border-radius: 25px;
+}
+
+.eco-icon {
+    min-height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--verde-claro);
+    border-radius: 20px;
+
+    font-size: 5rem;
+}
+
+.eco-icon img {
+    width: 82%;
+    height: 82%;
+    object-fit: contain;
+}
+
+.innovacion h3 {
+    color: var(--verde-oscuro);
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.innovacion p {
+    color: var(--gris);
+    margin-bottom: 15px;
+}
+
+/* =========================
+   RUTA DE ATENCIÓN
+========================= */
+
+.ruta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-top: 40px;
+}
+
+.paso {
+    min-width: 100px;
+    padding: 15px;
+
+    text-align: center;
+
+    background: var(--verde-suave);
+    border-radius: 15px;
+}
+
+.paso strong {
+    display: block;
+
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+
+    margin: auto auto 8px;
+
+    background: var(--verde);
+    color: white;
+
+    border-radius: 50%;
+}
+
+.paso span {
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.flecha {
+    color: var(--verde);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* =========================
+   CASOS
+========================= */
+
+.problema {
+    position: relative;
+}
+
+.tarjeta-numero {
+    display: inline-block;
+
+    padding: 5px 10px;
+    margin-bottom: 15px;
+
+    background: var(--amarillo);
+    border-radius: 20px;
+
+    font-weight: bold;
+}
+
+.btn-solucion {
+    margin-top: 20px;
+    padding: 10px 18px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: var(--verde);
+    color: white;
+
+    cursor: pointer;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.btn-solucion:hover {
+    background: var(--verde-oscuro);
+}
+
+.solucion {
+    margin-top: 15px;
+    padding: 15px;
+
+    background: var(--verde-suave);
+
+    border-radius: 12px;
+
+    font-weight: bold;
+}
+
+/* =========================
+   MANUAL
+========================= */
+
+.regla span {
+    display: block;
+
+    color: var(--verde);
+    font-size: 2rem;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+/* =========================
+   CONTACTO
+========================= */
+
+.contacto {
+    padding: 100px 25px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--verde),
+            var(--verde-oscuro)
+        );
+
+    color: white;
+}
+
+.contacto .etiqueta {
+    color: var(--amarillo);
+}
+
+.contacto h2 {
+    color: white;
+}
+
+.contacto p:not(.etiqueta) {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    color: #e8f5e9;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 40px 20px;
+
+    text-align: center;
+
+    background: var(--oscuro);
+    color: white;
+}
+
+.footer-logo {
+    color: var(--verde-claro);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #c8d4cb;
+    margin: 5px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 950px) {
+
+    .navbar {
+        position: relative;
+        flex-direction: row;
+        padding: 18px 20px;
+    }
+
+    .menu {
+        right: 20px;
+        left: 20px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 70px 25px;
+    }
+
+    .hero-text {
+        max-width: 800px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .tarjetas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .colores-lista {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .innovacion {
+        grid-template-columns: 1fr;
+    }
+
+    .eco-icon {
+        min-height: 180px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        min-height: auto;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .hero {
+        min-height: 550px;
+    }
+
+    .hero-icon {
+        width: 190px;
+        height: 190px;
+        font-size: 5rem;
+    }
+
+    .tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    .colores-lista {
+        grid-template-columns: 1fr;
+    }
+
+    .innovacion {
+        padding: 25px;
+    }
+
+    .ruta {
+        flex-direction: column;
+    }
+
+    .flecha {
+        transform: rotate(90deg);
+    }
+
+    .paso {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .contacto {
+        padding: 70px 20px;
+    }
+}
+
